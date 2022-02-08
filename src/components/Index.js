@@ -23,7 +23,7 @@ let Index = {
     linkFavicon () {
       let icon = this.fieldFaviconResized
       let filename = this.faviconName
-      //console.log(filename)
+      console.log(filename)
       if (filename.endsWith('.ico')) {
         // https://blog.pulipuli.info/favicon.ico
         return `<link href="${icon}" rel="icon" type="image/x-icon">`
@@ -31,6 +31,10 @@ let Index = {
       else if (filename.endsWith('.png')) {
         // https://lh3.googleusercontent.com/-tkBPlsBsFJg/V0M0b-gPKNI/AAAAAAACw9Y/Y-2BGg4z3H4/Image.jpg?imgmax=800
         return `<link rel="icon" type="image/png" href="${icon}" />`
+      }
+      else if (this.localConfig.fieldFavicon.startsWith('https://blogger.googleusercontent.com/img/a/')) {
+        // https://blogger.googleusercontent.com/img/a/AVvXsEhYezHn2JYaLzJ66yXkj2mKIgQal4NLFF-B49GclB-k_lCbX_92POMABLo8W9HouT90uPSTivtDCuhjvFM3FXUSYNpLEJTvo0Hv7ukEnCjGh9JrAM3-cCPwziVu1ihs-pp7PLTanmZToRii2Z4NVggyy_4etvxIkN-6W7WlZL81bBJCmM0910I
+        return `<link rel="icon" type="image/png" href="${this.localConfig.fieldFavicon}" />`
       }
       else if (filename.endsWith('.jpg')
               || filename.endsWith('.jpeg')) {
