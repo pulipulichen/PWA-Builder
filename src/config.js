@@ -1,5 +1,10 @@
 let config = {
   appName: 'vue-app',
+  inited: false,
+  
+  debug: {
+    enableRestore: true
+  }
 }
 
 import styleConfig from './styles/style.config.js'

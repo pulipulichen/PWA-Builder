@@ -132,6 +132,7 @@ let VueController = {
       }
     },
     saveToLocalStorage () {
+      //console.log('aaa')
       if (this.config.inited === false) {
         return false
       }

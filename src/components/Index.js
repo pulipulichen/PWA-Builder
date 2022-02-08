@@ -13,9 +13,9 @@ let Index = {
 //  },
   computed: {
     faviconName () {
-      if (this.fieldFavicon)
+      if (this.localConfig.fieldFavicon)
       {
-         let u = new URL(this.fieldFavicon)
+         let u = new URL(this.localConfig.fieldFavicon)
          return u.pathname
       }
       return "";
@@ -42,7 +42,7 @@ let Index = {
       return ''
     },
     fieldFaviconResized () {
-      let icon = this.fieldFavicon.trim()
+      let icon = this.localConfig.fieldFavicon.trim()
       
       // https://lh3.googleusercontent.com/-XbSdu-ANc-0/YRIs-lEv0YI/AAAAAAAFBIE/kDgHDim7xNQsBbGCLK-FiK_1m8QifyIrQCLcBGAsYHQ/s256/Picture3.png
       if (icon.startsWith('https://lh3.googleusercontent.com/') 
@@ -55,13 +55,13 @@ let Index = {
     fieldOutput () {
       /*
       return `<head>
-  <title>${this.fieldTitle}</title>
+  <title>${this.localConfig.fieldTitle}</title>
   ${this.linkFavicon}
   <link rel="manifest" href="https://pulipulichen.github.io/Chrome-Shortcut-Head-Modifier/manifest-for-link.json">
 </head>`
       */
       return `<head>
-  <title>${this.fieldTitle}</title>
+  <title>${this.localConfig.fieldTitle}</title>
   ${this.linkFavicon}
 </head>`
     },
@@ -74,6 +74,9 @@ let Index = {
   },
 //  watch: {
 //  },
+  mounted () {
+    this.config.inited = true
+  },
   methods: {
     copyFieldOutput () {
       this.utils.ClipboardUtils.copyPlainString(this.fieldOutput)
