@@ -21,9 +21,10 @@ let Index = {
       return "";
     },
     linkFavicon () {
+      let url = this.localConfig.fieldFavicon.trim()
       let icon = this.fieldFaviconResized
       let filename = this.faviconName
-      console.log(filename)
+      //console.log(filename)
       if (filename.endsWith('.ico')) {
         // https://blog.pulipuli.info/favicon.ico
         return `<link href="${icon}" rel="icon" type="image/x-icon">`
@@ -32,9 +33,13 @@ let Index = {
         // https://lh3.googleusercontent.com/-tkBPlsBsFJg/V0M0b-gPKNI/AAAAAAACw9Y/Y-2BGg4z3H4/Image.jpg?imgmax=800
         return `<link rel="icon" type="image/png" href="${icon}" />`
       }
-      else if (this.localConfig.fieldFavicon.startsWith('https://blogger.googleusercontent.com/img/a/')) {
+      else if (url.startsWith('https://blogger.googleusercontent.com/img/a/')) {
         // https://blogger.googleusercontent.com/img/a/AVvXsEhYezHn2JYaLzJ66yXkj2mKIgQal4NLFF-B49GclB-k_lCbX_92POMABLo8W9HouT90uPSTivtDCuhjvFM3FXUSYNpLEJTvo0Hv7ukEnCjGh9JrAM3-cCPwziVu1ihs-pp7PLTanmZToRii2Z4NVggyy_4etvxIkN-6W7WlZL81bBJCmM0910I
-        return `<link rel="icon" type="image/png" href="${this.localConfig.fieldFavicon}" />`
+        return `<link rel="icon" type="image/png" href="${url}" />`
+      }
+      else if (url.startsWith('https://imgur.com/a/')) {
+        // https://blogger.googleusercontent.com/img/a/AVvXsEhYezHn2JYaLzJ66yXkj2mKIgQal4NLFF-B49GclB-k_lCbX_92POMABLo8W9HouT90uPSTivtDCuhjvFM3FXUSYNpLEJTvo0Hv7ukEnCjGh9JrAM3-cCPwziVu1ihs-pp7PLTanmZToRii2Z4NVggyy_4etvxIkN-6W7WlZL81bBJCmM0910I
+        return `<link rel="icon" type="image/png" href="${url}.png" />`
       }
       else if (filename.endsWith('.jpg')
               || filename.endsWith('.jpeg')) {
@@ -69,11 +74,18 @@ let Index = {
   ${this.linkFavicon}
 </head>`
     },
+    fieldFindFaviconEncoded () {
+      return encodeURIComponent(this.fieldFindFavicon.trim())
+    },
     linkFindIcon () {
-      return `https://findicons.com/search/` + encodeURIComponent(this.fieldFindFavicon)
+      return `https://findicons.com/search/` + this.fieldFindFaviconEncoded
     },
     linkIconNinja () {
-      return `https://www.iconninja.com/tag/` + encodeURIComponent(this.fieldFindFavicon) + '-icon'
+      return `https://www.iconninja.com/tag/` + this.fieldFindFaviconEncoded + '-icon'
+    },
+    linkFlaticon () {
+      // https://www.flaticon.com/search?word=sleep&type=icon&color=color&order_by=4
+      return `https://www.flaticon.com/search?word=${this.fieldFindFaviconEncoded}&type=icon&color=color&order_by=4`
     }
   },
 //  watch: {

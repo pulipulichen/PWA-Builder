@@ -18,48 +18,50 @@
            onfocus="this.select()"
            id="fieldFavicon" />
   </div>
-  <div class="field">
-    <label for="fieldFindFavicon">
-      Find Favicon
-    </label>
-    <input type="text" 
-           v-model="fieldFindFavicon" 
-           onfocus="this.select()"
-           id="fieldFindFavicon" />
-    <div class="ui fluid basic buttons"
-         v-bind:class="{disabled: (fieldFindFavicon === '')}">
-      <a class="ui button"
-         v-bind:href="linkFindIcon"
-         v-bind:target="'findicon_' + fieldFindFavicon">
-           Findicons
-      </a>
-      <a class="ui button"
-         v-bind:href="linkIconNinja"
-         v-bind:target="'iconninja_' + fieldFindFavicon">
-           Icon Ninja
-      </a>
+  <div class="ui segment">
+    <div class="field">
+      <label for="fieldFindFavicon">
+        Find Favicon
+      </label>
+      <input type="text" 
+             v-model="fieldFindFavicon" 
+             onfocus="this.select()"
+             id="fieldFindFavicon" />
+      <div class="ui fluid basic buttons"
+           v-bind:class="{disabled: (fieldFindFavicon === '')}">
+        <a class="ui button"
+           v-bind:href="linkFlaticon"
+           v-bind:target="'iconfinaicon_' + fieldFindFaviconEncoded">
+             flaticon
+        </a>
+        <a class="ui button"
+           v-bind:href="linkFindIcon"
+           v-bind:target="'findicon_' + fieldFindFaviconEncoded">
+             Findicons
+        </a>
+        <a class="ui button"
+           v-bind:href="linkIconNinja"
+           v-bind:target="'iconninja_' + fieldFindFaviconEncoded">
+             Icon Ninja
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label>
-      Upload Favicon
-    </label>
-    <div class="ui fluid basic buttons">
-      <a class="ui button"
-         href="https://www.blogger.com/blog/post/edit/16607461/8994542276547065"
-         target="blogger">
-           Blogger Draft
-      </a>
-      <a class="ui button"
-         href="https://pulipulichen.github.io/Pulipuli-Blog/user-js-css/blog-draft-image-parser/"
-         target="blogger_convert">
-           Blogger Draft Convert
-      </a>
-      <a class="ui button"
-         href="https://imgur.com/upload"
-         target="imgur">
-           Imgur
-      </a>
+    <div class="field">
+      <label>
+        Upload Favicon
+      </label>
+      <div class="ui fluid basic buttons">
+        <a class="ui button"
+           href="https://postimages.org/"
+           target="postimage">
+             Post Image
+        </a>
+        <a class="ui button"
+           href="https://blog.pulipuli.info/"
+           target="postimageInstruction">
+             Post Image Usage Instruction
+        </a>
+      </div>
     </div>
   </div>
   <div class="field">

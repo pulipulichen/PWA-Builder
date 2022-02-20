@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "DEMO: https://pulipulichen.github.io/Chrome-Shortcut-Head-Modifier/",
   "main": "index.js",
-  "scripts": {
+  "scripts": {"start": "node index.html",
     "w1.webpack-build-development": "webpack --mode development --config ./webpack/webpack.config.js ",
     "w2.webpack-watch-development": "webpack --watch --mode development --display errors-only --config ./webpack/webpack.config.js ",
     "w3.webpack-watch-build-production": "webpack --watch --mode production --display errors-only --config ./webpack/webpack.config.js ",
