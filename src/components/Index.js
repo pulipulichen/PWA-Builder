@@ -35,7 +35,7 @@ let Index = {
       }
       else if (url.startsWith('https://blogger.googleusercontent.com/img/a/')) {
         // https://blogger.googleusercontent.com/img/a/AVvXsEhYezHn2JYaLzJ66yXkj2mKIgQal4NLFF-B49GclB-k_lCbX_92POMABLo8W9HouT90uPSTivtDCuhjvFM3FXUSYNpLEJTvo0Hv7ukEnCjGh9JrAM3-cCPwziVu1ihs-pp7PLTanmZToRii2Z4NVggyy_4etvxIkN-6W7WlZL81bBJCmM0910I
-        return `<link rel="icon" type="image/png" href="${url}" />`
+        return `<link rel="icon" type="image/png" href="${icon}" />`
       }
       else if (url.startsWith('https://imgur.com/a/')) {
         // https://blogger.googleusercontent.com/img/a/AVvXsEhYezHn2JYaLzJ66yXkj2mKIgQal4NLFF-B49GclB-k_lCbX_92POMABLo8W9HouT90uPSTivtDCuhjvFM3FXUSYNpLEJTvo0Hv7ukEnCjGh9JrAM3-cCPwziVu1ihs-pp7PLTanmZToRii2Z4NVggyy_4etvxIkN-6W7WlZL81bBJCmM0910I
@@ -57,6 +57,11 @@ let Index = {
       if (icon.startsWith('https://lh3.googleusercontent.com/') 
               && icon.indexOf('/s1600/') > -1) {
         icon = icon.split('/s1600/').join('/s256/')
+      }
+      // https://blogger.googleusercontent.com/img/a/AVvXsEhWN4vJFmeSfDkLgSyOgxuyqTzfPhwbdvwrRrqH4dtcdpRpWnk9YNxySCsV6t5DOavFtWPk3Gx5pcsI3nEfoBJhsMqaKavBVGZdZ8EcbuJY5GG3kTdEw5bWjE82H3O4Fc6m3p1X-p9p-6JBS6brz5qI654y9l75etUnSnYmMF6yePLyP4VaVw8
+      else if (icon.startsWith('https://blogger.googleusercontent.com/img/a/') 
+              && !icon.endsWith('=s256')) {
+        icon = icon + '=s256'
       }
       
       return icon
