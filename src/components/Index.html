@@ -11,7 +11,8 @@
   </div>
   <div class="fields">
     <div class="two wide field favicon-preview-field"> 
-      <img v-bind:src="localConfig.fieldFavicon" class="favicon-preview" />
+      <img v-bind:src="localConfig.fieldFavicon" class="favicon-preview"
+           v-if="localConfig.fieldFavicon" />
     </div>
     <div class="fourteen wide field">
       <label for="fieldFavicon">
