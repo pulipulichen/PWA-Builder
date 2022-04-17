@@ -165,7 +165,34 @@ let Index = {
       this.localConfig.lastPreset = item
       this.localConfig[item + 'Last'] = link
       this.localConfig.fieldFavicon = link
-    }
+
+      let prefix = this.getCurrentMMDD() + ' '
+      let title = this.localConfig.fieldTitle
+
+      if (title.startsWith(prefix)) {
+        return true
+      }
+      if (title[4] !== ' ') {
+        this.localConfig.fieldTitle = prefix + title.trim()
+      }
+      else if (title[4] === ' ' && isNaN(title.slice(0, 4)) === false) {
+        title = title.slice(5).trim()
+        this.localConfig.fieldTitle = prefix + title.trim()
+      }
+
+    },
+    getCurrentMMDD() {
+      let d = new Date()
+      let month = '' + (d.getMonth() + 1)
+      let day = '' + d.getDate()
+  
+      if (month.length < 2) 
+          month = '0' + month;
+      if (day.length < 2) 
+          day = '0' + day;
+  
+      return [month, day].join('');
+  }
   }
 }
 
