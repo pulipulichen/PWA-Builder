@@ -1,9 +1,14 @@
 let config = {
-  appName: 'vue-app',
+  appName: 'chrome-shortcut-head-modifier',
   inited: false,
   
   debug: {
     enableRestore: true
+  },
+  viewportSize: {
+    width: null,
+    height: null,
+    ratio: null
   }
 }
 
