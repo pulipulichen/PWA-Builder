@@ -6,7 +6,28 @@ let Index = {
     return {
       fieldTitle: `布丁布丁吃什麼？`,
       fieldFavicon: `https://blog.pulipuli.info/favicon.ico`,
-      fieldFindFavicon: ''
+      fieldFindFavicon: '',
+      presetForm: [
+        'https://lh3.googleusercontent.com/-wnyoHaAvRK0/YVk47pyjGOI/AAAAAAAFBpA/yFsr8jfP7XkkLJu-Fu6dMKgQvH72Se2WQCLcBGAsYHQ/s1600/sheet-Alecive-Flatwoken-Apps-Google-Drive-Forms.png',
+        'https://lh3.googleusercontent.com/-QzjgpOBowlg/YVk8oRqDgSI/AAAAAAAFBpM/fQwGZB6eztI6yx1MVPBe8GQ36D_VpYrRwCLcBGAsYHQ/s1600/sheet-yellow-Alecive-Flatwoken-Apps-Google-Drive-Forms.png',
+        'https://lh3.googleusercontent.com/-E85g18o8SG0/YVk8oWDBNiI/AAAAAAAFBpQ/bmL0gX7ooKIw44s-Lmiz0HhYITCt87pIwCLcBGAsYHQ/s1600/sheet-pink-Alecive-Flatwoken-Apps-Google-Drive-Forms.png',
+        'https://lh3.googleusercontent.com/-KggvrRwyGXA/YVk8ocMehyI/AAAAAAAFBpI/beeiCgBqKQQL6RVG-8DCV6-2D-afb6J0ACLcBGAsYHQ/s1600/sheet-blue-Alecive-Flatwoken-Apps-Google-Drive-Forms.png',
+        'https://lh3.googleusercontent.com/-xfQx6yrdsuM/YVk8-BAU-xI/AAAAAAAFBpg/W13l0RFbMzcWwICoQRa9nD0RkxuEFBi2QCLcBGAsYHQ/s1600/sheet-Alecive-Flatwoken-Apps-Google-Drive-Forms-red.png'
+      ],
+      presetSlide: [
+        'https://lh3.googleusercontent.com/-f6XuWkPsrEk/Ycq9X8RiDuI/AAAAAAAFEVQ/BYUhx02M45UMVbt3LpwvHUdBP8t-WiVjQCNcBGAsYHQ/s1600/slides-icon-6-yellow.jpg',
+        'https://lh3.googleusercontent.com/-1CgE5pWZeAs/Ycq9X7asC4I/AAAAAAAFEVY/lm6ESmREnnkRiFShs79QMbhqXZqXnttqgCNcBGAsYHQ/s1600/slides-icon-6-green.jpg',
+        'https://lh3.googleusercontent.com/-85cciDhiyJc/Ycq9XwVnjCI/AAAAAAAFEVU/pwOkigjtkDIAS__aYC7VAw5tfciTLatmgCNcBGAsYHQ/s1600/slides-icon-6-blue.jpg',
+        'https://lh3.googleusercontent.com/-2veas9B3Y60/Ycq9X9RBbRI/AAAAAAAFEVc/Ndb2TpBLtGsrY568e1aw8Ev6UDEbg_LmACNcBGAsYHQ/s1600/slides-icon-6-red.jpg',
+        'https://lh3.googleusercontent.com/-WqA0AZAmyjk/Ycq9XwpNxCI/AAAAAAAFEVM/xe6bhZ3umTgoNupaHANcCO20VNvjpiZHwCNcBGAsYHQ/s1600/slides-icon-6-gray.jpg'
+      ],
+      presetDoc: [
+        'https://lh3.googleusercontent.com/-3VWx8YodNfU/YcrAMBrI0bI/AAAAAAAFEWA/xw13o-kGx5Mq2eh_XXNZZn85zPmCYcWoACNcBGAsYHQ/s1600/google-drive-docs-blue.png',
+        'https://lh3.googleusercontent.com/-VXebmgMD4YI/YcrALAC2yEI/AAAAAAAFEV0/Een_1-Mo_WUJSSH5fEEt6t6f4htKMT_SgCNcBGAsYHQ/s1600/google-drive-docs-green.png',
+        'https://lh3.googleusercontent.com/-lY-8xi6YnH4/YcrAK55ofGI/AAAAAAAFEVw/cXDKz5J4foY67YHKgUGwNFy9m_Jwi0rbACNcBGAsYHQ/s1600/google-drive-docs-red.png',
+        'https://lh3.googleusercontent.com/-z2_QkX_8BUY/YcrALBw2SnI/AAAAAAAFEV4/ksiiGadc9rQG0bdk8puki8g4fojAlAOMgCNcBGAsYHQ/s1600/google-drive-docs-yellow.png',
+        'https://lh3.googleusercontent.com/-b1LLQ-Ac22A/YcrALP6DVcI/AAAAAAAFEV8/trGSFLUwtMcPOygoCFJdeeobpx9PX5DvACNcBGAsYHQ/s1600/google-drive-docs-gray.png'
+      ]
     }
   },
 //  components: {
@@ -91,16 +112,59 @@ let Index = {
     linkFlaticon () {
       // https://www.flaticon.com/search?word=sleep&type=icon&color=color&order_by=4
       return `https://www.flaticon.com/search?word=${this.fieldFindFaviconEncoded}&type=icon&color=color&order_by=4`
+    },
+    presetList () {
+      let list = [
+        'presetForm',
+        'presetSlide',
+        'presetDoc'
+      ]
+
+      //console.log(list)
+
+      let first = this.localConfig.lastPreset
+      if (list.indexOf(first) > -1) {
+        list.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
+      }
+
+      return list.map((item) => {
+        return {
+          item,
+          links: this[item + 'Sorted']
+        }
+      })
+    },
+    presetDocSorted () {
+      return this.sortPreset(this.presetDoc, this.localConfig.presetDocLast)
+    },
+    presetSlideSorted () {
+      return this.sortPreset(this.presetSlide, this.localConfig.presetSlideLast)
+    },
+    presetFormSorted () {
+      return this.sortPreset(this.presetForm, this.localConfig.presetFormLast)
     }
   },
 //  watch: {
 //  },
   mounted () {
     this.config.inited = true
+    $('.tabular.menu .item').tab()
   },
   methods: {
     copyFieldOutput () {
       this.utils.ClipboardUtils.copyPlainString(this.fieldOutput)
+    },
+    sortPreset (list, first) {
+      list = list.join(',').split(',')
+      if (list.indexOf(first) > -1) {
+        list.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
+      }
+      return list
+    },
+    setPresetLink (item, link) {
+      this.localConfig.lastPreset = item
+      this.localConfig[item + 'Last'] = link
+      this.localConfig.fieldFavicon = link
     }
   }
 }
