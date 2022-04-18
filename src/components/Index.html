@@ -27,11 +27,15 @@
   
   <div class="ui top attached tabular menu">
     <div class="item" 
+         v-bind:class="{active: (localConfig.selectFavicon === 'preset')}"
+         v-on:click="localConfig.selectFavicon = 'preset'">Preset</div>
+    <div class="item" 
          v-bind:class="{active: (localConfig.selectFavicon === 'search')}"
          v-on:click="localConfig.selectFavicon = 'search'">Search</div>
     <div class="item" 
-         v-bind:class="{active: (localConfig.selectFavicon === 'preset')}"
-         v-on:click="localConfig.selectFavicon = 'preset'">Preset</div>
+         v-bind:class="{active: (localConfig.selectFavicon === 'upload')}"
+         v-on:click="localConfig.selectFavicon = 'upload'">Upload</div>
+    
   </div>
   <div class="ui bottom attached active tab segment">
     
@@ -63,6 +67,8 @@
           </a>
         </div>
       </div>
+    </template>
+    <template v-if="localConfig.selectFavicon === 'upload'">
       <div class="field">
         <label>
           Upload Favicon
