@@ -7,6 +7,7 @@ let Index = {
       fieldTitle: `布丁布丁吃什麼？`,
       fieldFavicon: `https://blog.pulipuli.info/favicon.ico`,
       fieldFindFavicon: '',
+      faviconRationCorrect: true,
       presetForm: [
         'https://lh3.googleusercontent.com/-wnyoHaAvRK0/YVk47pyjGOI/AAAAAAAFBpA/yFsr8jfP7XkkLJu-Fu6dMKgQvH72Se2WQCLcBGAsYHQ/s1600/sheet-Alecive-Flatwoken-Apps-Google-Drive-Forms.png',
         'https://lh3.googleusercontent.com/-QzjgpOBowlg/YVk8oRqDgSI/AAAAAAAFBpM/fQwGZB6eztI6yx1MVPBe8GQ36D_VpYrRwCLcBGAsYHQ/s1600/sheet-yellow-Alecive-Flatwoken-Apps-Google-Drive-Forms.png',
@@ -144,8 +145,6 @@ let Index = {
       return this.sortPreset(this.presetForm, this.localConfig.presetFormLast)
     }
   },
-//  watch: {
-//  },
   mounted () {
     this.config.inited = true
     $('.tabular.menu .item').tab()
@@ -192,7 +191,12 @@ let Index = {
           day = '0' + day;
   
       return [month, day].join('');
-  }
+    },
+    checkFaviconRatio () {
+      let img = this.$refs.faviconPreview
+      console.log(img.width, img.height)
+      this.faviconRationCorrect = (img.width === img.height)
+    }
   }
 }
 

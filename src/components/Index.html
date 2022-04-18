@@ -1,26 +1,35 @@
 <div class="Index ui form">
-  <div class="field">
-    <label for="fieldTitle">
-      Title
-    </label>
-    <input type="text" 
-           v-model="localConfig.fieldTitle" 
-           id="fieldTitle"
-           onfocus="this.select()"
-           />
-  </div>
+  
   <div class="fields">
     <div class="two wide field favicon-preview-field"> 
       <img v-bind:src="localConfig.fieldFavicon" class="favicon-preview"
-           v-if="localConfig.fieldFavicon" />
+           v-if="localConfig.fieldFavicon"
+           v-on:load="checkFaviconRatio"
+           ref="faviconPreview" />
     </div>
     <div class="fourteen wide field">
+      <div class="field">
+        <label for="fieldTitle">
+          Title
+        </label>
+        <input type="text" 
+               v-model="localConfig.fieldTitle" 
+               id="fieldTitle"
+               onfocus="this.select()"
+               />
+      </div>
+
       <label for="fieldFavicon">
         Favicon
+        <span v-if="!faviconRationCorrect"
+              class="error">
+          (Favicon should be a square.)
+        </span>
       </label>
       <input type="text" 
              v-model="localConfig.fieldFavicon" 
              onfocus="this.select()"
+             v-bind:class="{'error': !faviconRationCorrect }"
              id="fieldFavicon" />
     </div>
   </div>
