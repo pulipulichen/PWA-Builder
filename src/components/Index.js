@@ -28,6 +28,13 @@ let Index = {
         'https://lh3.googleusercontent.com/-lY-8xi6YnH4/YcrAK55ofGI/AAAAAAAFEVw/cXDKz5J4foY67YHKgUGwNFy9m_Jwi0rbACNcBGAsYHQ/s1600/google-drive-docs-red.png',
         'https://lh3.googleusercontent.com/-z2_QkX_8BUY/YcrALBw2SnI/AAAAAAAFEV4/ksiiGadc9rQG0bdk8puki8g4fojAlAOMgCNcBGAsYHQ/s1600/google-drive-docs-yellow.png',
         'https://lh3.googleusercontent.com/-b1LLQ-Ac22A/YcrALP6DVcI/AAAAAAAFEV8/trGSFLUwtMcPOygoCFJdeeobpx9PX5DvACNcBGAsYHQ/s1600/google-drive-docs-gray.png'
+      ],
+      presetSheet: [
+        'https://blogger.googleusercontent.com/img/a/AVvXsEjTPFZczYG4fmpoPDVISoxJZ_xNOLCDXm-pryNsS7igZ3mrZP9I654mf3hmqiuXBw6xW_G_m24RlsoddwnUM7XZ8YTEAGf_u0iM4RaXPr6LCk_r7iwF34LfDpbk3akuDLU-I1muTD-OtAlR0OdF9q1ppa-n8admztfrBsc2EPTjq8r5I0RATqI',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEiuv6LamrX2j1I9_P21g3u8Hpbq48DHThnQ4LBA002CKpQhHZTZBtK2K5qiVBoYIn-L76zuGKMhdbseA6X0cKSz0z6xB94cJ41MPd6-aJI4Mw_3f1JwbBgLMsTuz5V-K0rlXU-lkm43rCvA08IBT0VKA2BP6BRmRgYOvx2oJ-R29NB3fuIHnd0',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEinWSd_rloHEn_F4baNBgllWu7xn_F88pPcCqLrotOWw28sKL1gl430g2lPNKv8baPYIMb4e2OoSjjsAOnjNdAnRXthklaK2PA_C3I_6pel4iJIQZW5nH5HI6gmVzlTwScie1MJ795V8BGTp_atyCPqk5HHmpb6Tv7PFP8EIQ2tveGtxSiMMuQ',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEgxWyIxIErpPZOzGIg4f6tkPGCemW3Z6Dm0Vb9fKelCg7v__muicvFCrDFkL5dDUorliLGR-IOXTBg6tx4RYJzfSuHj-L9QX1KfpGFlu3-7pz1Nch0bekdgr-v_3wViZCg2GoYI6WIjS3zyJPGQBnkiPOiAOBlDxO34oJDbueA8hg9veYARnpM',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEjUW1yheRmYBipem7aAfQAE04-Q13pg3tNYyVZLt0hxcLR4TlZkv18elQ8HwL18mVjyZCzZZOqS1ZbltBdsuBLzKOJGxSjtoonhIb6NsJCH7QS4EuSXu01K7Mxc5ESj-kNggAB1A9M5-eyeeehtc_NCWLctAJnZBlg1-9Sd79h8YLaPr8BrvCM',
       ]
     }
   },
@@ -118,7 +125,8 @@ let Index = {
       let list = [
         'presetForm',
         'presetSlide',
-        'presetDoc'
+        'presetDoc',
+        'presetSheet'
       ]
 
       //console.log(list)
@@ -143,7 +151,10 @@ let Index = {
     },
     presetFormSorted () {
       return this.sortPreset(this.presetForm, this.localConfig.presetFormLast)
-    }
+    },
+    presetSheetSorted () {
+      return this.sortPreset(this.presetSheet, this.localConfig.presetSheetLast)
+    },
   },
   mounted () {
     this.config.inited = true

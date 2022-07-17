@@ -7,6 +7,7 @@ let localConfig = {
   presetFormLast: null,
   presetSlideLast: null,
   presetDocLast: null,
+  presetSheetLast: null,
   selectFavicon: 'search',
 }
 
