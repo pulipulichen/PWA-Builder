@@ -8,6 +8,7 @@ let localConfig = {
   presetSlideLast: null,
   presetDocLast: null,
   presetSheetLast: null,
+  presetKanbanLast: null,
   selectFavicon: 'search',
 }
 

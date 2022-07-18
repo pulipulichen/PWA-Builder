@@ -35,6 +35,13 @@ let Index = {
         'https://blogger.googleusercontent.com/img/a/AVvXsEinWSd_rloHEn_F4baNBgllWu7xn_F88pPcCqLrotOWw28sKL1gl430g2lPNKv8baPYIMb4e2OoSjjsAOnjNdAnRXthklaK2PA_C3I_6pel4iJIQZW5nH5HI6gmVzlTwScie1MJ795V8BGTp_atyCPqk5HHmpb6Tv7PFP8EIQ2tveGtxSiMMuQ',
         'https://blogger.googleusercontent.com/img/a/AVvXsEgxWyIxIErpPZOzGIg4f6tkPGCemW3Z6Dm0Vb9fKelCg7v__muicvFCrDFkL5dDUorliLGR-IOXTBg6tx4RYJzfSuHj-L9QX1KfpGFlu3-7pz1Nch0bekdgr-v_3wViZCg2GoYI6WIjS3zyJPGQBnkiPOiAOBlDxO34oJDbueA8hg9veYARnpM',
         'https://blogger.googleusercontent.com/img/a/AVvXsEjUW1yheRmYBipem7aAfQAE04-Q13pg3tNYyVZLt0hxcLR4TlZkv18elQ8HwL18mVjyZCzZZOqS1ZbltBdsuBLzKOJGxSjtoonhIb6NsJCH7QS4EuSXu01K7Mxc5ESj-kNggAB1A9M5-eyeeehtc_NCWLctAJnZBlg1-9Sd79h8YLaPr8BrvCM',
+      ],
+      presetKanban: [
+        'https://blogger.googleusercontent.com/img/a/AVvXsEgOYTqwRWziFjt3RFm8NdxufP9_lqBXoSkOfLSQiy9LH-0Wg1978jDSWYCAbfNnRof49FDpS-P-GrH2fXGX_b2Uvx6RCLnTyTjJwLfnAS1RAYxp5YfEI1xIDytrArjGi6e4mi37vtfe46LPIrFfFdMrf0A1JkLR8ZKbBjqzs4HbxsjPl7RoBmo',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEh139sHtZuItDpBF9KRSN-v_Ktbu8GHrLfTFaJMwJixh6B5fgfDaSzxvJkyg9dDJ1uQBWadERJdY0ekfsZ0D-2huvoU7OTaan6mYqwAUutW2R2nUWlZf0KIzt-aSPgEhIc9eudRqviAMOZANf6eQMutMAvxI6vEBbfZ4MoqXIGkGkipllr7HMc',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEiFnyubFqUbGuDMhs6oLYIObpOjryPaD8ncAg2LD643LeU-Aj-j7js8G-n9AdXkToqklJ9cfxb815gKg_b4X7RYf0N9vyk18Xs_q8zx7hzyBkOBUWUAGQ4MgfCJ4tH9zU-m5dnXvHwlQkJINHSQL7T-mUdLFj4sM0C5c6rhUJkhAltHmlWxsJ4',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEjgrUYNj1MRMWHi1QVFTT5mUwYvphTcALfuNrvCV9aYZtpn84qqAJ7msly2rqhTMGcnUG6D2gcOxntKhEypFESoVjnwxuepAdoW7ajh9t7mhlPrvlgQ9zPVLt-egc5OXTynpuM0i4ayZNCg9OKutAcVAnYmf1887Fmk6551Ld77jUHTmhDocuY',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEhCzkq80AhuiNCoMwLgCWE8p5vJ0IqGdJvr1m-Opk8MzZjGz4ZxtBAz5zo-WB8cMAlY7fd8rYTkD8HhvDWkTj4EmnnaelFlRe_Ia0QBm3M_Qs4WJjsKn2F62KqRZgreBXjqhEk8-o2ZvoBphTj-yeBKYiubMLzWtSGWQTGdRb-Ifo2mfqtcJQ0',
       ]
     }
   },
@@ -126,7 +133,8 @@ let Index = {
         'presetForm',
         'presetSlide',
         'presetDoc',
-        'presetSheet'
+        'presetSheet',
+        'presetKanban'
       ]
 
       //console.log(list)
@@ -154,6 +162,9 @@ let Index = {
     },
     presetSheetSorted () {
       return this.sortPreset(this.presetSheet, this.localConfig.presetSheetLast)
+    },
+    presetKanbanSorted () {
+      return this.sortPreset(this.presetKanban, this.localConfig.presetKanbanLast)
     },
   },
   mounted () {
