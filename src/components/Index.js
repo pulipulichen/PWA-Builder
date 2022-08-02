@@ -111,7 +111,7 @@ let Index = {
 </head>`
       */
       return `<head>
-  <title>${this.localConfig.fieldTitle}</title>
+  <title>${this.localConfig.fieldTitle.trim()}</title>
   ${this.linkFavicon}
 </head>`
     },
