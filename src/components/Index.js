@@ -187,7 +187,7 @@ let Index = {
       this.localConfig[item + 'Last'] = link
       this.localConfig.fieldFavicon = link
 
-      let prefix = this.getCurrentMMDD() + ' '
+      let prefix = 'z' + this.getCurrentMMDD() + ' '
       let title = this.localConfig.fieldTitle
 
       if (title.startsWith(prefix)) {
