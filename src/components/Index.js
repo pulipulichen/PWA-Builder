@@ -42,6 +42,13 @@ let Index = {
         'https://blogger.googleusercontent.com/img/a/AVvXsEiFnyubFqUbGuDMhs6oLYIObpOjryPaD8ncAg2LD643LeU-Aj-j7js8G-n9AdXkToqklJ9cfxb815gKg_b4X7RYf0N9vyk18Xs_q8zx7hzyBkOBUWUAGQ4MgfCJ4tH9zU-m5dnXvHwlQkJINHSQL7T-mUdLFj4sM0C5c6rhUJkhAltHmlWxsJ4',
         'https://blogger.googleusercontent.com/img/a/AVvXsEjgrUYNj1MRMWHi1QVFTT5mUwYvphTcALfuNrvCV9aYZtpn84qqAJ7msly2rqhTMGcnUG6D2gcOxntKhEypFESoVjnwxuepAdoW7ajh9t7mhlPrvlgQ9zPVLt-egc5OXTynpuM0i4ayZNCg9OKutAcVAnYmf1887Fmk6551Ld77jUHTmhDocuY',
         'https://blogger.googleusercontent.com/img/a/AVvXsEhCzkq80AhuiNCoMwLgCWE8p5vJ0IqGdJvr1m-Opk8MzZjGz4ZxtBAz5zo-WB8cMAlY7fd8rYTkD8HhvDWkTj4EmnnaelFlRe_Ia0QBm3M_Qs4WJjsKn2F62KqRZgreBXjqhEk8-o2ZvoBphTj-yeBKYiubMLzWtSGWQTGdRb-Ifo2mfqtcJQ0',
+      ],
+      presetGitMind: [
+        'https://blogger.googleusercontent.com/img/a/AVvXsEjuvReW7tZMzos67tRaYSLwdEkEXjW_BgofjkRY0vJNBPZAGjHVPrx_qxlZ4jrr98WXhTJ8WBps5_MzpMIRUE6aQtPQqlKqUPD_n1a9WMX3hu_Xg8q9SLr9sD46_tNs6UWN6Eiq5WYEZEs5_4HBWj30LkxGmbKju0XM8xNuQWVj9k_lYAQ_Yzg',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEhIMXRslbOPHs4DS0StzmAZyHmCAHNiMEA06ssl_9ALBke5X4b9O_2Gg92DsZrGUcKDxQ0gCTU9ZjCyeeBfeVsv2bs9SgLys4f0vH3kGk74iNAtz3yMiiFTUylM-Oop_qSYZzWcAd6aWDfvJyVSC3vrOO4TJsmJoaJY-jMx49ZIt9c1guYWuFA',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEhVXqRsf0e4yl-mEfY80tO9MCNtvN2KKyC1zq957xtsWBjBAwPW8fWsiQTaw9foi6S3GjX6-41FV790ubA_R_8mSM8QEaKiB8k9abCRnV5muSLxn7mF9UMn2y_SEBJ0oJqMYiaWdDXvQWCAjxYLlELSm7VaV_D-a2Phykxf6mlaKzS3ggWIQQU',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEidXQpXLf1-Whg58ahiSW8uBlg9hJYU9lAz2ASM5ry2He2DBU3xT5UIJTFl8BZJkoXOEPKc36sKSnD82rv9eFx_BZn--Nda7GHL9AthHC9CM3FCUOK6K_sOE37-b4O_CSk1icdUVBQXvW2qpPcRRSKajsgOxdk0Py1dfu7Y2rMm0EKpodBf2TU',
+        'https://blogger.googleusercontent.com/img/a/AVvXsEj2R9Hs-KfLmfg8EfTgOic3q9nj-a6gaM_z51GwxMNv-IZn8B6gR4xAD4wWk3CBAsCYLIurETjNxZD2YtCOWvXPWjwFXk5RA-Uvt0Fxqc90whjYH99sZgZPTvyC64vgYrXmDFcamOclV0_MCpCtuF06fjsFSB8c2xrHrQ9zkMOyJP6BbDZbi84'
       ]
     }
   },
