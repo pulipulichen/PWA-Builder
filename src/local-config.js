@@ -9,6 +9,7 @@ let localConfig = {
   presetDocLast: null,
   presetSheetLast: null,
   presetKanbanLast: null,
+  presetGitMindLast: null,
   selectFavicon: 'search',
 }
 

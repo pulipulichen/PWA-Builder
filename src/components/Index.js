@@ -141,10 +141,11 @@ let Index = {
         'presetSlide',
         'presetDoc',
         'presetSheet',
-        'presetKanban'
+        'presetKanban',
+        'presetGitMind'
       ]
 
-      //console.log(list)
+      console.log(list)
 
       let first = this.localConfig.lastPreset
       if (list.indexOf(first) > -1) {
@@ -172,6 +173,9 @@ let Index = {
     },
     presetKanbanSorted () {
       return this.sortPreset(this.presetKanban, this.localConfig.presetKanbanLast)
+    },
+    presetGitMindSorted () {
+      return this.sortPreset(this.presetGitMind, this.localConfig.presetGitMindLast)
     },
   },
   mounted () {
@@ -223,7 +227,7 @@ let Index = {
     },
     checkFaviconRatio () {
       let img = this.$refs.faviconPreview
-      console.log(img.width, img.height)
+      //console.log(img.width, img.height)
       this.faviconRationCorrect = (img.width === img.height)
     }
   }
