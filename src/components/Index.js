@@ -49,7 +49,8 @@ let Index = {
         'https://blogger.googleusercontent.com/img/a/AVvXsEhVXqRsf0e4yl-mEfY80tO9MCNtvN2KKyC1zq957xtsWBjBAwPW8fWsiQTaw9foi6S3GjX6-41FV790ubA_R_8mSM8QEaKiB8k9abCRnV5muSLxn7mF9UMn2y_SEBJ0oJqMYiaWdDXvQWCAjxYLlELSm7VaV_D-a2Phykxf6mlaKzS3ggWIQQU',
         'https://blogger.googleusercontent.com/img/a/AVvXsEidXQpXLf1-Whg58ahiSW8uBlg9hJYU9lAz2ASM5ry2He2DBU3xT5UIJTFl8BZJkoXOEPKc36sKSnD82rv9eFx_BZn--Nda7GHL9AthHC9CM3FCUOK6K_sOE37-b4O_CSk1icdUVBQXvW2qpPcRRSKajsgOxdk0Py1dfu7Y2rMm0EKpodBf2TU',
         'https://blogger.googleusercontent.com/img/a/AVvXsEj2R9Hs-KfLmfg8EfTgOic3q9nj-a6gaM_z51GwxMNv-IZn8B6gR4xAD4wWk3CBAsCYLIurETjNxZD2YtCOWvXPWjwFXk5RA-Uvt0Fxqc90whjYH99sZgZPTvyC64vgYrXmDFcamOclV0_MCpCtuF06fjsFSB8c2xrHrQ9zkMOyJP6BbDZbi84'
-      ]
+      ],
+      iconHistory: []
     }
   },
 //  components: {
@@ -177,6 +178,25 @@ let Index = {
     presetGitMindSorted () {
       return this.sortPreset(this.presetGitMind, this.localConfig.presetGitMindLast)
     },
+  },
+  watch: {
+    'localConfig.fieldFavicon' (url) {
+      if (url === '') {
+        return false
+      }
+
+      if (this.iconHistory.indexOf(url) === -1) {
+        this.iconHistory.unshift(url)
+
+        if (this.iconHistory.length > 20) {
+          this.iconHistory = this.iconHistory.slice(0, 20)
+        }
+      }
+      else {
+        this.iconHistory = this.iconHistory.filter(item => item !== url)
+        this.iconHistory.unshift(url)
+      }
+    }
   },
   mounted () {
     this.config.inited = true

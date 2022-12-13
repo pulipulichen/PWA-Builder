@@ -36,6 +36,9 @@
   
   <div class="ui top attached tabular menu">
     <div class="item" 
+         v-bind:class="{active: (localConfig.selectFavicon === 'history')}"
+         v-on:click="localConfig.selectFavicon = 'history'">History</div>
+    <div class="item" 
          v-bind:class="{active: (localConfig.selectFavicon === 'preset')}"
          v-on:click="localConfig.selectFavicon = 'preset'">Preset</div>
     <div class="item" 
@@ -105,6 +108,12 @@
              v-on:click="setPresetLink(presetItem.item, presetLink)" />
       </span>
     </template>
+
+    <span class="preset-list" v-if="localConfig.selectFavicon === 'history'">
+      <img v-for="url in iconHistory"
+           v-bind:src="url"
+           v-on:click="localConfig.fieldFavicon = url" />
+    </span>
   </div>
   <div class="ui segment">
     
