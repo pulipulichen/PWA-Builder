@@ -13,6 +13,7 @@ let localConfig = {
   presetKanbanLast: null,
   presetGitMindLast: null,
   selectFavicon: 'search',
+  iconHistory: []
 }
 
 export default localConfig

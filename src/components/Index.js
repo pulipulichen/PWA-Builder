@@ -191,6 +191,31 @@ let Index = {
   <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}">
 </head>`
     },
+    fieldOutputJS () {
+      /*
+      return `<head>
+  <title>${this.localConfig.fieldTitle}</title>
+  ${this.linkFavicon}
+  <link rel="manifest" href="https://pulipulichen.github.io/Chrome-Shortcut-Head-Modifier/manifest-for-link.json">
+</head>`
+      */
+      let manifestJSON = {
+        start_url: this.localConfig.fieldStartURL,
+        scope: this.localConfig.fieldScope,
+        display: "standalone",
+        name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
+        icons: [this.linkFaviconSrc]
+      }
+
+      manifestJSON = JSON.stringify(manifestJSON)
+      manifestJSON = manifestJSON.replace(/"/g, '&quot;')
+      manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+      // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+
+      return `document.getElementsByTagName("head")[0].innerHTML = \`<head>
+  <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}">
+</head>\``
+    },
     fieldFindFaviconEncoded () {
       return encodeURIComponent(this.fieldFindFavicon.trim())
     },
@@ -253,16 +278,16 @@ let Index = {
         return false
       }
 
-      if (this.iconHistory.indexOf(url) === -1) {
-        this.iconHistory.unshift(url)
+      if (this.localConfig.iconHistory.indexOf(url) === -1) {
+        this.localConfig.iconHistory.unshift(url)
 
-        if (this.iconHistory.length > 20) {
-          this.iconHistory = this.iconHistory.slice(0, 20)
+        if (this.localConfig.iconHistory.length > 20) {
+          this.localConfig.iconHistory = this.localConfig.iconHistory.slice(0, 20)
         }
       }
       else {
-        this.iconHistory = this.iconHistory.filter(item => item !== url)
-        this.iconHistory.unshift(url)
+        this.localConfig.iconHistory = this.localConfig.iconHistory.filter(item => item !== url)
+        this.localConfig.iconHistory.unshift(url)
       }
     }
   },

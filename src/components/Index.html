@@ -137,7 +137,7 @@
     </template>
 
     <span class="preset-list" v-if="localConfig.selectFavicon === 'history'">
-      <img v-for="url in iconHistory"
+      <img v-for="url in localConfig.iconHistory"
            v-bind:src="url"
            v-on:click="localConfig.fieldFavicon = url" />
     </span>
@@ -149,6 +149,9 @@
     <label for="fieldOutput">
       Output
     </label>
+    <textarea v-html="fieldOutputJS"
+              id="fieldOutputJS"
+              onfocus="this.select()"></textarea>
     <textarea v-html="fieldOutput"
               id="fieldOutput"
               onfocus="this.select()"></textarea>
