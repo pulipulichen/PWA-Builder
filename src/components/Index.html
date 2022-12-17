@@ -34,16 +34,29 @@
                id="fieldFavicon" />
       </div>
 
-      <div class="field">
-        <label for="fieldScope">
-          Scope
-        </label>
-        <input type="text" 
-               v-model="localConfig.fieldScope" 
-               id="fieldScope"
-               onfocus="this.select()"
-               />
+      <div class="fields">
+        <div class="eight wide field">
+          <label for="fieldStartURL">
+            Start URL (default: .)
+          </label>
+          <input type="text" 
+                 v-model="localConfig.fieldStartURL" 
+                 id="fieldStartURL"
+                 onfocus="this.select()"
+                 />
+        </div>
+        <div class="eight wide field">
+          <label for="fieldScope">
+            Scope
+          </label>
+          <input type="text" 
+                 v-model="localConfig.fieldScope" 
+                 id="fieldScope"
+                 onfocus="this.select()"
+                 />
+        </div>
       </div>
+        
         
     </div>
   </div>

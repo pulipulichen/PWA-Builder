@@ -175,7 +175,7 @@ let Index = {
 </head>`
       */
       let manifestJSON = {
-        start_url: ".",
+        start_url: this.localConfig.fieldStartURL,
         scope: this.localConfig.fieldScope,
         display: "standalone",
         name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
