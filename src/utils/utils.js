@@ -4,6 +4,7 @@ import AxiosUtils from './AxiosUtils.js'
 import FileUtils from './FileUtils.js'
 import URLUtils from './URLUtils.js'
 import './date-helper.js'
+import HTMLUtils from './HTMLUtils.js'
 
 export default {
   AsyncUtils,
@@ -11,4 +12,5 @@ export default {
   AxiosUtils,
   FileUtils,
   URLUtils,
+  HTMLUtils
 }

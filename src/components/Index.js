@@ -94,6 +94,62 @@ let Index = {
       }
       return ''
     },
+    linkFaviconSrc () {
+      let url = this.localConfig.fieldFavicon.trim()
+      let icon = this.fieldFaviconResized
+      let filename = this.faviconName
+      //console.log(filename)
+
+      // https://gist.github.com/ericelliott/90602152915b615b761c113f82243146
+      if (filename.endsWith('.ico')) {
+        // https://blog.pulipuli.info/favicon.ico
+        // return `<link href="${icon}" rel="icon" type="image/x-icon">`
+        return {
+          src: icon,
+          type: "image/x-icon"
+        }
+      }
+      else if (filename.endsWith('.png')) {
+        // https://lh3.googleusercontent.com/-tkBPlsBsFJg/V0M0b-gPKNI/AAAAAAACw9Y/Y-2BGg4z3H4/Image.jpg?imgmax=800
+        // return `<link rel="icon" type="image/png" href="${icon}" />`
+        return {
+          src: icon,
+          type: "image/png"
+        }
+      }
+      else if (url.startsWith('https://blogger.googleusercontent.com/img/a/')) {
+        // https://blogger.googleusercontent.com/img/a/AVvXsEhYezHn2JYaLzJ66yXkj2mKIgQal4NLFF-B49GclB-k_lCbX_92POMABLo8W9HouT90uPSTivtDCuhjvFM3FXUSYNpLEJTvo0Hv7ukEnCjGh9JrAM3-cCPwziVu1ihs-pp7PLTanmZToRii2Z4NVggyy_4etvxIkN-6W7WlZL81bBJCmM0910I
+        // return `<link rel="icon" type="image/png" href="${icon}" />`
+        return {
+          src: icon,
+          type: "image/png"
+        }
+      }
+      else if (url.startsWith('https://imgur.com/a/')) {
+        // https://blogger.googleusercontent.com/img/a/AVvXsEhYezHn2JYaLzJ66yXkj2mKIgQal4NLFF-B49GclB-k_lCbX_92POMABLo8W9HouT90uPSTivtDCuhjvFM3FXUSYNpLEJTvo0Hv7ukEnCjGh9JrAM3-cCPwziVu1ihs-pp7PLTanmZToRii2Z4NVggyy_4etvxIkN-6W7WlZL81bBJCmM0910I
+        // return `<link rel="icon" type="image/png" href="${url}.png" />`
+        return {
+          src: url + '.png',
+          type: "image/png"
+        }
+      }
+      else if (filename.endsWith('.jpg') || 
+        filename.endsWith('.jpeg')) {
+        // return `<link rel="icon" type="image/jpeg" href="${icon}" />`
+        return {
+          src: icon,
+          type: "image/jpeg"
+        }
+      }
+      else if (filename.endsWith('.gif')) {
+        // return `<link rel="icon" type="image/gif" href="${icon}" />`
+        return {
+          src: icon,
+          type: "image/gif"
+        }
+      }
+      return ''
+    },
     fieldFaviconResized () {
       let icon = this.localConfig.fieldFavicon.trim()
       
@@ -118,9 +174,21 @@ let Index = {
   <link rel="manifest" href="https://pulipulichen.github.io/Chrome-Shortcut-Head-Modifier/manifest-for-link.json">
 </head>`
       */
+      let manifestJSON = {
+        start_url: ".",
+        scope: this.localConfig.fieldScope,
+        display: "standalone",
+        name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
+        icons: [this.linkFaviconSrc]
+      }
+
+      manifestJSON = JSON.stringify(manifestJSON)
+      manifestJSON = manifestJSON.replace(/"/g, '&quot;')
+      manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+      // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+
       return `<head>
-  <title>${this.localConfig.fieldTitle.trim()}</title>
-  ${this.linkFavicon}
+  <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}">
 </head>`
     },
     fieldFindFaviconEncoded () {

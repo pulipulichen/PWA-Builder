@@ -19,18 +19,32 @@
                />
       </div>
 
-      <label for="fieldFavicon">
-        Favicon
-        <span v-if="!faviconRationCorrect"
-              class="error">
-          (Favicon should be a square.)
-        </span>
-      </label>
-      <input type="text" 
-             v-model="localConfig.fieldFavicon" 
-             onfocus="this.select()"
-             v-bind:class="{'error': !faviconRationCorrect }"
-             id="fieldFavicon" />
+      <div class="field">
+        <label for="fieldFavicon">
+          Favicon
+          <span v-if="!faviconRationCorrect"
+                class="error">
+            (Favicon should be a square.)
+          </span>
+        </label>
+        <input type="text" 
+               v-model="localConfig.fieldFavicon" 
+               onfocus="this.select()"
+               v-bind:class="{'error': !faviconRationCorrect }"
+               id="fieldFavicon" />
+      </div>
+
+      <div class="field">
+        <label for="fieldScope">
+          Scope
+        </label>
+        <input type="text" 
+               v-model="localConfig.fieldScope" 
+               id="fieldScope"
+               onfocus="this.select()"
+               />
+      </div>
+        
     </div>
   </div>
   
