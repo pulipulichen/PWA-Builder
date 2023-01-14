@@ -3,7 +3,13 @@ Modify the &lt;head> to custom a shortcut.
 
 Chrome Shortcut Head Modifier
 
+https://github.com/pulipulichen/PWA-Builder
+https://pulipulichen.github.io/PWA-Builder/
+
+
 https://github.com/pulipulichen/Chrome-Shortcut-Head-Modifier
+
+
 
 https://pulipulichen.github.io/Chrome-Shortcut-Head-Modifier/
 
