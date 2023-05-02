@@ -188,7 +188,7 @@ let Index = {
       // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
 
       return `<head>
-  <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}">
+  <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}"><meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 </head>`
     },
     fieldOutputJS () {
@@ -213,7 +213,7 @@ let Index = {
       // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
 
       return `document.getElementsByTagName("head")[0].innerHTML = \`<head>
-  <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}">
+  <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}"><meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 </head>\``
     },
     fieldFindFaviconEncoded () {
