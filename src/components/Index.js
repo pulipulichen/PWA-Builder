@@ -94,6 +94,20 @@ let Index = {
       }
       return ''
     },
+
+    linkFaviconHref () {
+      let linkHTML = this.linkFavicon
+
+      // Create a temporary DOM element
+      var tempElement = document.createElement('div');
+      tempElement.innerHTML = linkHTML;
+
+      // Find the link element and get the href attribute value
+      var linkElement = tempElement.querySelector('link');
+      var hrefValue = linkElement.getAttribute('href');
+
+      return hrefValue
+    },
     linkFaviconSrc () {
       let url = this.localConfig.fieldFavicon.trim()
       let icon = this.fieldFaviconResized
@@ -106,7 +120,8 @@ let Index = {
         // return `<link href="${icon}" rel="icon" type="image/x-icon">`
         return {
           src: icon,
-          type: "image/x-icon"
+          type: "image/x-icon",
+          "purpose":"any"
         }
       }
       else if (filename.endsWith('.png')) {
@@ -209,12 +224,18 @@ let Index = {
 
       manifestJSON = JSON.stringify(manifestJSON)
       manifestJSON = manifestJSON.replace(/"/g, '&quot;')
-      manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+      // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
       // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
 
+      /*
       return `document.getElementsByTagName("head")[0].innerHTML = \`<head>
   <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}"><meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 </head>\``
+      */
+      return `document.title = "${this.localConfig.fieldTitle.trim()}";
+      var link = document.createElement('link');link.rel = 'icon';link.type = 'image/png';link.href = '${this.linkFaviconHref}';document.head.appendChild(link);
+var linkElement = document.querySelector('link[rel="manifest"]');if (linkElement) { linkElement.parentNode.removeChild(linkElement);}link = document.createElement('link');link.rel = 'manifest';link.href = 'data:application/manifest+json,${manifestJSON}';document.head.appendChild(link);`
+
     },
     fieldFindFaviconEncoded () {
       return encodeURIComponent(this.fieldFindFavicon.trim())
