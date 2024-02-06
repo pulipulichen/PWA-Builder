@@ -233,7 +233,7 @@ let Index = {
 </head>\``
       */
       return `document.title = "${this.localConfig.fieldTitle.trim()}";
-      var link = document.createElement('link');link.rel = 'icon';link.type = 'image/png';link.href = '${this.linkFaviconHref}';document.head.appendChild(link);
+var link = document.createElement('link');link.rel = 'icon';link.type = 'image/png';link.href = '${this.linkFaviconHref}';document.head.appendChild(link);
 var linkElement = document.querySelector('link[rel="manifest"]');if (linkElement) { linkElement.parentNode.removeChild(linkElement);}link = document.createElement('link');link.rel = 'manifest';link.href = 'data:application/manifest+json,${manifestJSON}';document.head.appendChild(link);`
 
     },
