@@ -129,7 +129,8 @@ let Index = {
         // return `<link rel="icon" type="image/png" href="${icon}" />`
         return {
           src: icon,
-          type: "image/png"
+          type: "image/png",
+          "purpose":"any"
         }
       }
       else if (url.startsWith('https://blogger.googleusercontent.com/img/a/')) {
@@ -137,7 +138,8 @@ let Index = {
         // return `<link rel="icon" type="image/png" href="${icon}" />`
         return {
           src: icon,
-          type: "image/png"
+          type: "image/png",
+          "purpose":"any"
         }
       }
       else if (url.startsWith('https://imgur.com/a/')) {
@@ -145,7 +147,8 @@ let Index = {
         // return `<link rel="icon" type="image/png" href="${url}.png" />`
         return {
           src: url + '.png',
-          type: "image/png"
+          type: "image/png",
+          "purpose":"any"
         }
       }
       else if (filename.endsWith('.jpg') || 
@@ -153,14 +156,16 @@ let Index = {
         // return `<link rel="icon" type="image/jpeg" href="${icon}" />`
         return {
           src: icon,
-          type: "image/jpeg"
+          type: "image/jpeg",
+          "purpose":"any"
         }
       }
       else if (filename.endsWith('.gif')) {
         // return `<link rel="icon" type="image/gif" href="${icon}" />`
         return {
           src: icon,
-          type: "image/gif"
+          type: "image/gif",
+          "purpose":"any"
         }
       }
       return ''
