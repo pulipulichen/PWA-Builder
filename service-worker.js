@@ -16,9 +16,9 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
+const PRECACHE = 'precache-v20240226-021342';
 const RUNTIME = 'runtime';
-const PRECACHE = 'precache-v2021-0615-181418'
-      
+
 /**
  * How to build cache list?
  * 
@@ -28,27 +28,29 @@ const PRECACHE = 'precache-v2021-0615-181418'
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  'index.html',
-  'manifest.json',
-  'service-worker.js',
-  'dist/index.js',
-  'dist/asset/brand-icons.eot',
-  'dist/asset/brand-icons.svg',
-  'dist/asset/brand-icons.ttf',
-  'dist/asset/brand-icons.woff',
-  'dist/asset/brand-icons.woff2',
-  'dist/asset/flags.png',
-  'dist/asset/icons.eot',
-  'dist/asset/icons.svg',
-  'dist/asset/icons.ttf',
-  'dist/asset/icons.woff',
-  'dist/asset/icons.woff2',
-  'dist/asset/outline-icons.eot',
-  'dist/asset/outline-icons.svg',
-  'dist/asset/outline-icons.ttf',
-  'dist/asset/outline-icons.woff',
-  'dist/asset/outline-icons.woff2',
-  'dist/vendors/semantic-ui-niwsf.js'
+  "dist/asset/brand-icons.eot",
+  "dist/asset/brand-icons.svg",
+  "dist/asset/brand-icons.ttf",
+  "dist/asset/brand-icons.woff",
+  "dist/asset/brand-icons.woff2",
+  "dist/asset/flags.png",
+  "dist/asset/icons.eot",
+  "dist/asset/icons.svg",
+  "dist/asset/icons.ttf",
+  "dist/asset/icons.woff",
+  "dist/asset/icons.woff2",
+  "dist/asset/outline-icons.eot",
+  "dist/asset/outline-icons.svg",
+  "dist/asset/outline-icons.ttf",
+  "dist/asset/outline-icons.woff",
+  "dist/asset/outline-icons.woff2",
+  "dist/index.js",
+  "dist/index.js.map",
+  "dist/vendors/semantic-ui-niwsf.js",
+  "dist/vendors/semantic-ui-niwsf.js.map",
+  "index.html",
+  "manifest.json",
+  "service-worker.js"
 ];
 
 // The install handler takes care of precaching the resources we always need.
