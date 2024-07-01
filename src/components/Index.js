@@ -269,7 +269,7 @@ var linkElement = document.querySelector('link[rel="manifest"]');if (linkElement
 
       manifestJSON = JSON.stringify(manifestJSON)
       manifestJSON = manifestJSON.replace(/"/g, '&quot;')
-      // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+      manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
       // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
 
       return `document.getElementsByTagName("head")[0].innerHTML = \`<head>
