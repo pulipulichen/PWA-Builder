@@ -186,6 +186,15 @@ let Index = {
       
       return icon
     },
+    filteredScope () {
+      let scope = this.localConfig.fieldScope
+
+      if (scope.indexOf('#') > -1) {
+        scope = scope.substring(0, scope.indexOf('#'))
+      }
+
+      return scope
+    },
     fieldOutput () {
       /*
       return `<head>
@@ -196,7 +205,7 @@ let Index = {
       */
       let manifestJSON = {
         start_url: this.localConfig.fieldStartURL,
-        scope: this.localConfig.fieldScope,
+        scope: this.filteredScope,
         display: "standalone",
         name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
         icons: [this.linkFaviconSrc]
@@ -221,7 +230,7 @@ let Index = {
       */
       let manifestJSON = {
         start_url: this.localConfig.fieldStartURL,
-        scope: this.localConfig.fieldScope,
+        scope: this.filteredScope,
         display: "standalone",
         name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
         icons: [this.linkFaviconSrc]
