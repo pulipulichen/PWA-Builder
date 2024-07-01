@@ -251,6 +251,32 @@ var link = document.createElement('link');link.rel = 'icon';link.type = 'image/p
 var linkElement = document.querySelector('link[rel="manifest"]');if (linkElement) { linkElement.parentNode.removeChild(linkElement);}link = document.createElement('link');link.rel = 'manifest';link.href = 'data:application/manifest+json,${manifestJSON}';document.head.appendChild(link);`
 
     },
+    fieldOutputJSHead () {
+      /*
+      return `<head>
+  <title>${this.localConfig.fieldTitle}</title>
+  ${this.linkFavicon}
+  <link rel="manifest" href="https://pulipulichen.github.io/Chrome-Shortcut-Head-Modifier/manifest-for-link.json">
+</head>`
+      */
+      let manifestJSON = {
+        start_url: this.localConfig.fieldStartURL,
+        scope: this.filteredScope,
+        display: "standalone",
+        name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
+        icons: [this.linkFaviconSrc]
+      }
+
+      manifestJSON = JSON.stringify(manifestJSON)
+      manifestJSON = manifestJSON.replace(/"/g, '&quot;')
+      // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+      // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
+
+      return `document.getElementsByTagName("head")[0].innerHTML = \`<head>
+  <title>${this.localConfig.fieldTitle.trim()}</title>${this.linkFavicon}<link rel="manifest" href="data:application/manifest+json,${manifestJSON}"><meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+</head>\``
+      
+    },
     fieldFindFaviconEncoded () {
       return encodeURIComponent(this.fieldFindFavicon.trim())
     },
