@@ -64,6 +64,11 @@ let Index = {
       }
       return "";
     },
+    fieldStartURL () {
+      let url = this.localConfig.fieldStartURL
+      url = url.split('#').join('%23')
+      return url 
+    },
     linkFavicon () {
       let url = this.localConfig.fieldFavicon.trim()
       let icon = this.fieldFaviconResized
@@ -204,7 +209,7 @@ let Index = {
 </head>`
       */
       let manifestJSON = {
-        start_url: this.localConfig.fieldStartURL,
+        start_url: this.fieldStartURL,
         scope: this.filteredScope,
         display: "standalone",
         name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
@@ -229,7 +234,7 @@ let Index = {
 </head>`
       */
       let manifestJSON = {
-        start_url: this.localConfig.fieldStartURL,
+        start_url: this.fieldStartURL,
         scope: this.filteredScope,
         display: "standalone",
         name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
@@ -260,7 +265,7 @@ var linkElement = document.querySelector('link[rel="manifest"]');if (linkElement
 </head>`
       */
       let manifestJSON = {
-        start_url: this.localConfig.fieldStartURL,
+        start_url: this.fieldStartURL,
         scope: this.filteredScope,
         display: "standalone",
         name: encodeURIComponent(this.localConfig.fieldTitle.trim()),
@@ -269,6 +274,7 @@ var linkElement = document.querySelector('link[rel="manifest"]');if (linkElement
 
       manifestJSON = JSON.stringify(manifestJSON)
       manifestJSON = manifestJSON.replace(/"/g, '&quot;')
+      manifestJSON = manifestJSON.replace(/#/g, '&%23')
       manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
       // manifestJSON = this.utils.HTMLUtils.encodeHTMLEntities(manifestJSON)
 
