@@ -1,4 +1,4 @@
 BASEDIR=$(dirname "$0")
 cd "$BASEDIR"
-cd ..
-docker-compose build
+# cd ..
+./run-docker-compose.sh build
